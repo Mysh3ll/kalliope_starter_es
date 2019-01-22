@@ -1,0 +1,12 @@
+{% if returncode == "DisambiguationError" %}
+    La búsqueda devuelve las siguientes páginas:
+    {% if may_refer is not none %}
+        {% for page in may_refer %}
+            {{ page }}
+        {% endfor %}
+    {% endif %}
+{% elif returncode == "PageError" %}
+    La búsqueda no dio nada.
+{% else %}
+    {{ summary }}
+{% endif %}
